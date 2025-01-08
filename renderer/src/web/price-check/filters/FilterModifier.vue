@@ -58,9 +58,6 @@
         <div style="width: calc(2*3rem + 1px)" />
       </div>
     </div>
-    <div class="flex flex-col">
-      <modifier-anointment :filter="filter" />
-    </div>
   </div>
 </template>
 
@@ -70,7 +67,6 @@ import { useI18n } from 'vue-i18n'
 import UiPopover from '@/web/ui/Popover.vue'
 import StatRollSlider from '../../ui/StatRollSlider.vue'
 import ItemModifierText from '../../ui/ItemModifierText.vue'
-import ModifierAnointment from './FilterModifierAnointment.vue'
 import FilterModifierItemHasEmpty from './FilterModifierItemHasEmpty.vue'
 import FilterModifierTiers from './FilterModifierTiers.vue'
 import { AppConfig } from '@/web/Config'
@@ -79,7 +75,7 @@ import { FilterTag, StatFilter, INTERNAL_TRADE_IDS } from './interfaces'
 import SourceInfo from './SourceInfo.vue'
 
 export default defineComponent({
-  components: { ItemModifierText, ModifierAnointment, FilterModifierItemHasEmpty, FilterModifierTiers, SourceInfo, StatRollSlider, UiPopover },
+  components: { ItemModifierText, FilterModifierItemHasEmpty, FilterModifierTiers, SourceInfo, StatRollSlider, UiPopover },
   emits: ['submit'],
   props: {
     filter: {
@@ -190,7 +186,7 @@ export default defineComponent({
       tag: computed(() => props.filter.tag),
       // TODO: change
       changeStep: computed(() => props.filter.roll!.dp ? 0.01 : 1),
-      showInputs: computed(() => props.filter.roll != null && !props.filter.oils),
+      showInputs: computed(() => props.filter.roll != null),
       fontSize: computed(() => AppConfig().fontSize),
       isDisabled: computed(() => props.filter.disabled),
       text: computed(() => {

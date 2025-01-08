@@ -1,18 +1,10 @@
 <template>
   <div>
     <div class="flex flex-wrap items-center pb-3 gap-2">
-      <filter-btn-numeric v-if="filters.linkedSockets"
-        :filter="filters.linkedSockets" :name="t('item.linked_sockets')" />
-      <filter-btn-numeric v-if="filters.mapTier"
-        :filter="filters.mapTier" :name="t('item.map_tier')" />
+      <filter-btn-numeric v-if="filters.waystoneTier"
+        :filter="filters.waystoneTier" :name="t('item.map_tier')" />
       <filter-btn-numeric v-if="filters.areaLevel"
         :filter="filters.areaLevel" :name="t('item.area_level')" />
-      <filter-btn-numeric v-if="filters.heistWingsRevealed"
-        :filter="filters.heistWingsRevealed" :name="t('item.heist_wings_revealed')" />
-      <filter-btn-numeric v-if="filters.sentinelCharge"
-        :filter="filters.sentinelCharge" :name="t('item.sentinel_charge')" />
-      <filter-btn-logical v-if="filters.mapBlighted" readonly
-        :filter="{ disabled: false }" :text="filters.mapBlighted.value" />
       <filter-btn-logical v-if="filters.rarity?.value === 'magic'" readonly
         :filter="{ disabled: false }" text="Magic" />
       <filter-btn-logical v-if="filters.discriminator?.value" readonly
@@ -21,20 +13,14 @@
         :filter="filters.itemLevel" :name="t('item.item_level')" />
       <filter-btn-numeric v-if="filters.stackSize"
         :filter="filters.stackSize" :name="t('item.stock')" />
-      <filter-btn-numeric v-if="filters.whiteSockets"
-        :filter="filters.whiteSockets" :name="t('item.white_sockets')" />
+      <filter-btn-numeric v-if="filters.sockets"
+        :filter="filters.sockets" :name="t('item.white_sockets')" />
       <filter-btn-numeric v-if="filters.gemLevel"
         :filter="filters.gemLevel" :name="t('item.gem_level')" />
       <filter-btn-numeric v-if="filters.quality"
         :filter="filters.quality" :name="t('item.quality')" />
-      <template v-if="filters.influences">
-        <filter-btn-logical v-for="influence of filters.influences" :key="influence.value"
-          :filter="influence" :text="influence.value" :img="`/images/influence-${influence.value}.png`" />
-      </template>
       <filter-btn-logical v-if="filters.unidentified"
         :filter="filters.unidentified" :text="t('item.unidentified')" />
-      <filter-btn-logical v-if="filters.veiled"
-        :filter="filters.veiled" :text="t('item.veiled')" />
       <filter-btn-logical v-if="filters.foil"
         :filter="filters.foil" :text="t('item.foil_unique')" />
       <filter-btn-logical v-if="filters.mirrored" active
@@ -137,7 +123,7 @@ export default defineComponent({
     const showUnknownMods = computed(() =>
       props.item.unknownModifiers.length &&
       props.item.category !== ItemCategory.Sentinel &&
-      !(props.item.category === ItemCategory.Map && props.item.rarity === ItemRarity.Unique)
+      !(props.item.category === ItemCategory.Waystone && props.item.rarity === ItemRarity.Unique)
     )
 
     const { t } = useI18n()

@@ -32,7 +32,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import DndContainer from 'vuedraggable'
+import DndContainer from 'vuedraggable-es'
 import HotkeyInput from '../settings/HotkeyInput.vue'
 import { configProp, configModelValue } from '../settings/utils.js'
 import type { StashSearchWidget } from './widget.js'

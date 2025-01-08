@@ -33,7 +33,7 @@ export default defineComponent({
       required: true
     },
     prediction: {
-      type: Object as PropType<{ min: number, max: number, currency: 'chaos' | 'div' }>,
+      type: Object as PropType<{ min: number, max: number, currency: 'exalt' | 'div' }>,
       required: true
     },
     item: {
@@ -62,7 +62,7 @@ export default defineComponent({
       }, {
         min: props.prediction.min,
         max: props.prediction.max,
-        currency: (props.prediction.currency === 'div') ? 'divine' : 'chaos'
+        currency: (props.prediction.currency === 'div') ? 'divine' : 'exalt'
       }, props.item)
     }
 

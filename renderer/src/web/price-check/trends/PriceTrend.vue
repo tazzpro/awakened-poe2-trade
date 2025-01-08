@@ -100,8 +100,8 @@ export default defineComponent({
       if (!trend) return
 
       const price = (props.item.info.refName === 'Divine Orb')
-        ? { min: trend.chaos, max: trend.chaos, currency: 'chaos' as const }
-        : autoCurrency(trend.chaos)
+        ? { min: trend.exalt, max: trend.exalt, currency: 'chaos' as const }
+        : autoCurrency(trend.exalt)
 
       return {
         price: price,

@@ -40,7 +40,7 @@ import { useI18n } from 'vue-i18n'
 import { Host } from '@/web/background/IPC'
 import { WidgetManager, ImageStripWidget } from './interfaces'
 
-import DndContainer from 'vuedraggable'
+import DndContainer from 'vuedraggable-es'
 import Widget from './Widget.vue'
 import FullscreenImage from '@/web/ui/FullscreenImage.vue'
 

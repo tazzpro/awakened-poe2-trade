@@ -29,7 +29,7 @@ import { ITEM_BY_REF, BaseType } from '@/assets/data'
 export default defineComponent({
   props: {
     price: {
-      type: Object as PropType<{ min: number, max: number, currency: 'div' | 'chaos' }>,
+      type: Object as PropType<{ min: number, max: number, currency: 'div' | 'exalt' }>,
       default: undefined
     },
     approx: {

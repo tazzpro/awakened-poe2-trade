@@ -125,13 +125,11 @@ export default defineComponent({
       } else {
         doSearch.value = Boolean(
           (item.rarity === ItemRarity.Unique) ||
-          (item.category === ItemCategory.Map) ||
-          (item.category === ItemCategory.HeistBlueprint) ||
+          (item.category === ItemCategory.Waystone) ||
           (item.category === ItemCategory.SanctumRelic) ||
           (item.category === ItemCategory.Charm) ||
           (!CATEGORY_TO_TRADE_ID.has(item.category!)) ||
-          (item.isUnidentified) ||
-          (item.isVeiled)
+          (item.isUnidentified) 
         )
       }
 
@@ -180,11 +178,7 @@ export default defineComponent({
       if (presets.value.active === 'filters.preset_base_item') return false
 
       return props.item.rarity === ItemRarity.Rare &&
-        props.item.category !== ItemCategory.Map &&
-        props.item.category !== ItemCategory.CapturedBeast &&
-        props.item.category !== ItemCategory.HeistContract &&
-        props.item.category !== ItemCategory.HeistBlueprint &&
-        props.item.category !== ItemCategory.Invitation &&
+        props.item.category !== ItemCategory.Waystone &&
         props.item.info.refName !== 'Expedition Logbook' &&
         !props.item.isUnidentified
     })
@@ -238,7 +232,7 @@ export default defineComponent({
         presets.value.active = id
       },
       makeTradeLink () {
-        return `https://${getTradeEndpoint()}/trade/search/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item))}`
+        return `https://${getTradeEndpoint()}/trade2/search/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item))}`
       }
     }
   }

@@ -228,8 +228,8 @@ function selectItem (item: BaseType, opts: { altQuality?: string, unique?: true,
   const isAdded = addItem({
     info: item,
     discr: opts.altQuality,
-    chaos: price?.chaos,
-    price: (price != null) ? autoCurrency(price.chaos) : undefined
+    chaos: price?.exalt,
+    price: (price != null) ? autoCurrency(price.exalt) : undefined
   })
   if (isAdded && opts.withTimeout) {
     showTimeout.value?.reset()

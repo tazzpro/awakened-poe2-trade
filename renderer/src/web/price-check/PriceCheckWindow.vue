@@ -16,7 +16,7 @@
           </template>
           <template #content>
             <item-quick-price class="text-base"
-              :price="{ min: stableOrbCost, max: stableOrbCost, currency: 'chaos' }"
+              :price="{ min: stableOrbCost, max: stableOrbCost, currency: 'exalt' }"
               item-img="/images/divine.png"
             />
             <div v-for="i in 9" :key="i">
@@ -153,7 +153,6 @@ export default defineComponent({
 
       item.value = (e.item ? ok(e.item as ParsedItem) : parseClipboard(e.clipboard))
         .andThen(item => (
-          (item.category === ItemCategory.HeistContract && item.rarity !== ItemRarity.Unique) ||
           (item.category === ItemCategory.Sentinel && item.rarity !== ItemRarity.Unique))
           ? err('item.unknown')
           : ok(item))

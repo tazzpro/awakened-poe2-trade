@@ -222,8 +222,8 @@ export default defineComponent({
 
     function makeTradeLink () {
       return (searchResult.value)
-        ? `https://${getTradeEndpoint()}/trade/search/${props.filters.trade.league}/${searchResult.value.id}`
-        : `https://${getTradeEndpoint()}/trade/search/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item))}`
+        ? `https://${getTradeEndpoint()}/trade2/search/${props.filters.trade.league}/${searchResult.value.id}`
+        : `https://${getTradeEndpoint()}/trade2/search/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item))}`
     }
 
     const { t } = useI18nNs('trade_result')
@@ -271,7 +271,6 @@ export default defineComponent({
   height: 0.375rem;
   border-radius: 100%;
 
-  &.online { /* */ }
   &.offline {
     @apply bg-red-600;
   }

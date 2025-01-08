@@ -65,10 +65,7 @@ const isMapLike = computed(() => {
   if (!item.value) return false
   const { category, rarity, info: { refName } } = item.value
   return (
-    (category === ItemCategory.Map && rarity !== ItemRarity.Unique) ||
-    category === ItemCategory.HeistContract ||
-    category === ItemCategory.HeistBlueprint ||
-    category === ItemCategory.Invitation ||
+    (category === ItemCategory.Waystone && rarity !== ItemRarity.Unique) ||
     refName === 'Expedition Logbook')
 })
 </script>
