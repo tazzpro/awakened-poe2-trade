@@ -41,7 +41,7 @@
         <thead>
           <tr></tr>
           <tr class="text-gray-500 text-left font-normal pl-2">
-            <button @click="showContrib = false">Contribution to predicted price<i class="fas fa-chevron-up btn-icon ml-2"></i></button>
+            <td><button @click="showContrib = false">Contribution to predicted price<i class="fas fa-chevron-up btn-icon ml-2"></i></button></td>
           </tr>
         </thead>
         <tbody class="align-top">
